@@ -1,0 +1,14 @@
+:root{
+    /*--------------
+        COLORS   
+    ---------------*/  
+    --clr-base-light: #ffffff;
+    --clr-base-dark: #000000;
+    --clr-primary: #2E3A46;
+    --clr-bg-secondary: #1E2D3B; 
+    --clr-tertiary: #808080;
+
+    /*    Layout element size    */
+    --header-height: 4.375rem;
+}
+
