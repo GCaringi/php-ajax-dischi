@@ -20,7 +20,28 @@
     </head>
     <body>
         <div id = "app">
-            
+            <header class = "bg-[color:var(--clr-primary)] h-[var(--header-height)] flex items-center justify-between px-3">
+                <img class = "h-full p-2" src="./img/spotify-logo.png" alt="Logo App">
+                <form class = "flex flex-col gap-2">
+                    <label class = "text-white text-lg font-semibold" for="genre">Seleziona per genere</label>
+                    <select v-model = "select" class= "font-semibold rounded-md" name="genre" id="" 
+                            @change = "filterPage()">
+                        <option value="all">Tutti i generi</option>
+                        <option v-for = "(genre, index) in genres" :value="genre">{{genre}}</option>
+                    </select>
+                </form>
+            </header>
+            <main class="min-h-[calc(100vh-var(--header-height))] flex justify-center items-center bg-[color:var(--clr-bg-secondary)]">
+                <div class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 place-items-center py-5 gap-3">
+                    <div class = "a-card w-full h-full flex flex-col items-center bg-[color:var(--clr-primary)] p-4"
+                         v-for = "(album,index) in albums" :key = "index">
+                        <img class = "w-full aspect-square pb-2" :src= "album.poster" alt= elem.title>
+                        <h2 class= "text-white font-bold text-xxl text-center">{{album.title}}</h2>
+                        <div class = "text-[color:var(--clr-tertiary)]">{{album.author}}</div>
+                        <small class = "text-[color:var(--clr-tertiary)]">{{album.year}}</small>
+                    </div>
+                </div>
+            </main>
         </div>
     
         <script src="./js/main.js"></script>
