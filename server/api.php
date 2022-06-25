@@ -4,11 +4,13 @@ require_once __DIR__ . "/database.php";
 
 header("Content-type: application/json");
 
-$filter = $_GET["filter"];
 
-if ($filter == "all"){
+
+
+if (empty($_GET) || $_GET['filter'] == "all"){
     echo json_encode($database);    
 }else{
+    $filter = $_GET["filter"];
     $filtered_array = [];
     foreach ($database as $album){
         if ($album['genre'] == $filter){

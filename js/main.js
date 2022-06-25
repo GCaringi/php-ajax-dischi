@@ -7,10 +7,7 @@ const app = new Vue({
     },
     created(){
         axios
-            .get("http://localhost:8888/php-ajax-dischi/server/api.php",{
-            params: {
-                filter : this.select,
-            }})
+            .get("http://localhost:8888/php-ajax-dischi/server/api.php")
             .then((response) => {
                 this.albums = response.data;
                 response.data.forEach(element => {
